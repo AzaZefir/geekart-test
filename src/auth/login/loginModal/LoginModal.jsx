@@ -1,10 +1,10 @@
 import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
-import { CloseIcon } from "../../../../../assets/headerIcons/HeaderIcons";
+import { CloseIcon } from "../../../assets/headerIcons/HeaderIcons";
 import { Controller } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
-import ReusableButton from "../../../../ui/ReusableButton";
 import { loginStyles } from "../Login";
+import ReusableButton from "../../../components/ui/ReusableButton";
 
 const LoginModal = ({
   open,

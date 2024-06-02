@@ -1,15 +1,15 @@
 import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
-import { CloseIcon } from "../../../../assets/headerIcons/HeaderIcons";
-import PinInput from "../../../ui/PinInput";
-import ReusableButton from "../../../ui/ReusableButton";
+import { CloseIcon } from "../../assets/headerIcons/HeaderIcons";
+import PinInput from "../../components/ui/PinInput";
+import ReusableButton from "../../components/ui/ReusableButton";
 import { loginStyles } from "../login/Login";
 
 const PhoneNumberConfirmationModal = ({
   showSecondModal,
   setShowSecondModal,
   handleClose,
-  phoneNumber
+  phoneNumber,
 }) => {
   return (
     <Modal

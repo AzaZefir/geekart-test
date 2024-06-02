@@ -22,7 +22,7 @@ import {
   logoStyle,
   burgerMenuStyle,
 } from "./HeaderStyles.js";
-import LoginModal from "./auth/login/Login.jsx";
+import Login from "../../auth/login/Login.jsx";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("1");
@@ -74,8 +74,8 @@ const Header = () => {
         </Toolbar>
       </MaxWidthWrapper>
 
-      {/* login modal */}
-      <LoginModal handleClose={handleClose} open={open} />
+      {/* login form */}
+      <Login handleClose={handleClose} open={open} />
     </AppBar>
   );
 };

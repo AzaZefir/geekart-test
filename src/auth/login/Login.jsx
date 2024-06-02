@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import "react-phone-input-2/lib/material.css";
-import { schema } from "../../../../helper/LoginValidation";
+import { schema } from "./../../helper/LoginValidation";
 import LoginModal from "./loginModal/LoginModal";
 import PhoneNumberConfirmationModal from "../phoneNumberConfirmation/PhoneNumberConfirmationModal";
 
