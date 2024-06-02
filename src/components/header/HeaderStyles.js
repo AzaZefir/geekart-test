@@ -15,13 +15,13 @@ const appBarStyle = {
 const toolbarStyle = {
   ...dflex,
   justifyContent: "space-between",
+  height: "64px",
 };
 
 const logoContainerStyle = {
   ...dflex,
   gap: "50px",
   cursor: "pointer",
-  mb: { mobile: 0, tablet: "6px" },
 };
 
 const logoStyle = {
@@ -57,7 +57,6 @@ const activeLinkStyle = {
 const rightBoxStyle = {
   ...dflex,
   gap: "24px",
-  mb: "6px",
   display: { mobile: "none", laptop: "flex" },
 };
 
