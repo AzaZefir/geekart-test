@@ -1,5 +1,6 @@
-import { Button, Typography, styled } from "@mui/material";
 import React, { useState } from "react";
+import { Button, Typography, styled } from "@mui/material";
+import { customButtonStyle } from "./ArticleTextStyles";
 
 const CustomButton = styled(Button)({
   all: "inherit",
@@ -35,12 +36,7 @@ const ArticleText = () => {
           силы. Бессонов подчеркнул важность ментальной подготовки и правильного
           питания для достижения высоких результатов.{" "}
           <CustomButton
-            sx={{
-              color: "#353754",
-              cursor: "pointer",
-              display: "inline-block",
-              mb: "0px",
-            }}
+            sx={customButtonStyle}
             variant="body2"
             onClick={handleReadMoreClick}
           >
@@ -49,12 +45,7 @@ const ArticleText = () => {
         </>
       ) : (
         <CustomButton
-          sx={{
-            color: "#353754",
-            cursor: "pointer",
-            display: "inline-block",
-            mb: "0px",
-          }}
+          sx={customButtonStyle}
           variant="body2"
           onClick={handleReadMoreClick}
         >

@@ -10,9 +10,10 @@ import {
 import { filterData } from "../../../../data";
 import {
   activeFilterStyle,
+  filterListStyle,
   filterStyle,
-  mainFilterStyles,
-} from "../../MainStyles";
+  filterStyles,
+} from "./FilterStyles";
 
 const Filter = () => {
   const [activeFilter, setActiveFilter] = useState(1);
@@ -21,18 +22,10 @@ const Filter = () => {
     setActiveFilter(id);
   };
   return (
-    <Box sx={mainFilterStyles}>
+    <Box sx={filterStyles}>
       <Typography variant="h1">Фильтр ленты</Typography>
 
-      <List
-        disablePadding
-        sx={{
-          mt: "23px",
-          display: "flex",
-          gap: "12px",
-          flexDirection: "column",
-        }}
-      >
+      <List disablePadding sx={filterListStyle}>
         {filterData.map((item) => (
           <ListItem
             key={item.id}
