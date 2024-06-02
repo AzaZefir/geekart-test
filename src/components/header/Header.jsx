@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import MaxWidthWrapper from "../maxWidthWrapper/MaxWidthWrapper";
-import {
-  AppBar,
-  Box,
-  Link,
-  Toolbar,
-} from "@mui/material";
+import { AppBar, Box, Link, Modal, Toolbar } from "@mui/material";
 import {
   ArrDown,
   BurgerMenuIcon,
@@ -27,9 +22,13 @@ import {
   logoStyle,
   burgerMenuStyle,
 } from "./HeaderStyles.js";
+import LoginModal from "./auth/login/Login.jsx";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("1");
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleLinkClick = (pageId) => {
     setActiveLink(pageId);
@@ -65,7 +64,7 @@ const Header = () => {
               RU
               <ArrDown />
             </Box>
-            <Box sx={userBoxStyle}>
+            <Box sx={userBoxStyle} onClick={handleOpen}>
               <User />
             </Box>
           </Box>
@@ -74,6 +73,9 @@ const Header = () => {
           </Box>
         </Toolbar>
       </MaxWidthWrapper>
+
+      {/* login modal */}
+      <LoginModal handleClose={handleClose} open={open} />
     </AppBar>
   );
 };

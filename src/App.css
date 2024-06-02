@@ -14,3 +14,17 @@ h6 {
   line-height: 26px;
   letter-spacing: -0.7px;
 }
+/* React phone input 2 styles */
+.react-tel-input .special-label {
+  display: none;
+}
+.react-tel-input .selected-flag .arrow {
+  display: none;
+}
+
+.react-tel-input .form-control {
+  padding: 18.5px 14px 18.5px 47px;
+}
+.MuiOutlinedInput-notchedOutline {
+  border-width: 0 !important;
+}
