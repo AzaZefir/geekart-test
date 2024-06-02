@@ -1,8 +1,8 @@
 const articleStyles = {
-  display: "flex",
+  display: {mobile:'none', tablet:"flex"},
   alignItems: "start",
   flexDirection: "column",
-  width: "765px",
+  width: { mobile: "100%", tablet: "765px" },
   backgroundColor: "#fff",
   borderRadius: "20px",
   padding: "28px 24px 28px 24px",

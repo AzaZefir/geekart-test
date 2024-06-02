@@ -12,7 +12,7 @@ const Ads = () => {
         alt="ads"
         style={{
           width: "100%",
-          height: "auro",
+          height: "auto",
           objectFit: "cover",
           borderRadius: "20px",
         }}

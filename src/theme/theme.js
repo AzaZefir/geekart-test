@@ -1,6 +1,16 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      mobile: 0,
+      tablet: 768,
+      laptop: 1024,
+      laptopL: 1200,
+      desktop: 1366,
+      desktopL: 1440,
+    },
+  },
   typography: {
     fontFamily: "'Inter', sans-serif",
     h1: {

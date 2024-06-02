@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <Box>
+    <Box component="section">
       <Header />
       <HomePage />
     </Box>

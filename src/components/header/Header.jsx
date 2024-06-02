@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import MaxWidthWrapper from "../maxWidthWrapper/MaxWidthWrapper";
-import { AppBar, Box, Link, Toolbar } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Link,
+  Toolbar,
+} from "@mui/material";
 import {
   ArrDown,
+  BurgerMenuIcon,
   Logo,
   RuFlag,
   User,
@@ -18,14 +24,17 @@ import {
   rightBoxStyle,
   toolbarStyle,
   userBoxStyle,
-  logoStyle
+  logoStyle,
+  burgerMenuStyle,
 } from "./HeaderStyles.js";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("1");
+
   const handleLinkClick = (pageId) => {
     setActiveLink(pageId);
   };
+
   return (
     <AppBar sx={appBarStyle} position="static">
       <MaxWidthWrapper>
@@ -59,6 +68,9 @@ const Header = () => {
             <Box sx={userBoxStyle}>
               <User />
             </Box>
+          </Box>
+          <Box sx={burgerMenuStyle}>
+            <BurgerMenuIcon />
           </Box>
         </Toolbar>
       </MaxWidthWrapper>

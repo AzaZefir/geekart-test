@@ -1,6 +1,6 @@
 const sideBarStyles = {
   width: "371px",
-  display: "flex",
+  display: { mobile: "none", tablet: "flex" },
   flexDirection: "column",
   gap: "24px",
 };

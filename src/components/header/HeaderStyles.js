@@ -15,15 +15,13 @@ const appBarStyle = {
 const toolbarStyle = {
   ...dflex,
   justifyContent: "space-between",
-  
 };
 
 const logoContainerStyle = {
   ...dflex,
   gap: "50px",
   cursor: "pointer",
-  mb:'6px',
-
+  mb: { mobile: 0, tablet: "6px" },
 };
 
 const logoStyle = {
@@ -31,11 +29,10 @@ const logoStyle = {
 };
 
 const navLinksContainerStyle = {
-  display: { xs: "none", md: "flex" },
+  display: { mobile: "none", laptop: "flex" },
   alignItems: "center",
-  // gap: "30px",
   height: "36px",
-  width: "713px",
+  width: { laptopL: "713px" },
   justifyContent: "space-between",
 };
 
@@ -49,7 +46,7 @@ const linkStyle = {
   lineHeight: "20px",
   fontWeight: "548",
   letterSpacing: "-0.5px",
-  padding:'8px'
+  padding: "8px",
 };
 
 const activeLinkStyle = {
@@ -60,7 +57,8 @@ const activeLinkStyle = {
 const rightBoxStyle = {
   ...dflex,
   gap: "24px",
-  mb:'6px',
+  mb: "6px",
+  display: { mobile: "none", laptop: "flex" },
 };
 
 const languageBoxStyle = {
@@ -71,7 +69,7 @@ const languageBoxStyle = {
   gap: "6px",
   cursor: "pointer",
   fontSize: "14px",
-  mr:"6px"
+  mr: "6px",
 };
 
 const userBoxStyle = {
@@ -82,7 +80,14 @@ const userBoxStyle = {
   height: "40px",
   borderRadius: "10px",
   cursor: "pointer",
+};
 
+const burgerMenuStyle = {
+  display: { mobile: "flex", laptop: "none" },
+  alignItems: "center",
+  justifyContent: "center",
+  width: "40px",
+  height: "40px",
 };
 
 export {
@@ -96,4 +101,5 @@ export {
   languageBoxStyle,
   userBoxStyle,
   logoStyle,
+  burgerMenuStyle,
 };
