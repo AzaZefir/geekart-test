@@ -7,7 +7,8 @@ const newsFeedsStyles = {
   "&::-webkit-scrollbar": {
     display: "none", // Chrome, Safari, Opera
   },
-  mb:'13px'
+  mb: "13px",
+  mt: "16px",
 };
 
 const newsFeedStyles = {

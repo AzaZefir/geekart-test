@@ -54,6 +54,27 @@ const activeLinkStyle = {
   color: "#06082C",
 };
 
+const mobileLinkStyle = {
+  ...dflex,
+  ...font,
+  color: "#7B7EA5",
+  gap: "10px",
+  textDecoration: "none",
+  cursor: "pointer",
+  lineHeight: "20px",
+  fontWeight: "548",
+  letterSpacing: "-0.5px",
+  padding: "0",
+  height:'52px',
+  fontSize:'14px',
+  mb:'8px'
+};
+
+const activeMobileLinkStyle = {
+  ...mobileLinkStyle,
+  color: "#06082C",
+};
+
 const rightBoxStyle = {
   ...dflex,
   gap: "24px",
@@ -101,4 +122,6 @@ export {
   userBoxStyle,
   logoStyle,
   burgerMenuStyle,
+  mobileLinkStyle,
+  activeMobileLinkStyle,
 };
