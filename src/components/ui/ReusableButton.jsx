@@ -1,9 +1,15 @@
 import React from "react";
 import { Button } from "@mui/material";
 
-const ReusableButton = ({ children, buttonStyles = {}, ...props }) => {
+const ReusableButton = ({
+  children,
+  buttonStyles = {},
+  onClick,
+  ...props
+}) => {
   return (
     <Button
+      onClick={onClick}
       sx={{
         fontSize: "14px",
         lineHeight: "20px",
