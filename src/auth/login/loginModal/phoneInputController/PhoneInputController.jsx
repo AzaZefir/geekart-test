@@ -23,7 +23,6 @@ const PhoneInputController = ({ control, errors }) => {
           inputProps={{
             id: "phoneInput",
             autoComplete: "on",
-            name: "Номер телефона",
             country: "ru",
             required: false,
             autoFocus: false,

@@ -6,7 +6,6 @@ const PinInputContainer = styled("div")({
   display: "flex",
   width: "100%",
   border: "none",
-  display: "flex",
   justifyContent: "space-between",
   gap: "8px",
   marginBottom: "24px",
