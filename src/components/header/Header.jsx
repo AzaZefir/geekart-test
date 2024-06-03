@@ -1,34 +1,31 @@
 import React, { useState } from "react";
 import MaxWidthWrapper from "../maxWidthWrapper/MaxWidthWrapper";
-import { AppBar, Box, Link, Modal, Toolbar } from "@mui/material";
-import {
-  ArrDown,
-  BurgerMenuIcon,
-  Logo,
-  RuFlag,
-  User,
-} from "../../assets/headerIcons/HeaderIcons";
-import { pages } from "./../../data/index.jsx";
-import {
-  activeLinkStyle,
-  appBarStyle,
-  languageBoxStyle,
-  linkStyle,
-  logoContainerStyle,
-  navLinksContainerStyle,
-  rightBoxStyle,
-  toolbarStyle,
-  userBoxStyle,
-  logoStyle,
-  burgerMenuStyle,
-} from "./HeaderStyles.js";
+import { AppBar, Toolbar } from "@mui/material";
+
+import { appBarStyle, toolbarStyle } from "./HeaderStyles.js";
+import { AuthState } from "../../context/AuthProvider";
 import Login from "../../auth/login/Login.jsx";
+import Register from "../../auth/register/Register.jsx";
+import HeaderLinks from "./headerLinks/HeaderLinks.jsx";
+import HeaderMenu from "./headerMenu/HeaderMenu.jsx";
+import HeaderMobileDrower from "./headerMobileDrower/HeaderMobileDrower.jsx";
 
 const Header = () => {
+  const {
+    open,
+    setOpen,
+    isRegistered,
+    setIsRegistered,
+    openStepperVarification,
+  } = AuthState();
   const [activeLink, setActiveLink] = useState("1");
-  const [open, setOpen] = React.useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const toggleDrawer = (open) => () => {
+    setOpenMenu(open);
+  };
+
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const handleLinkClick = (pageId) => {
     setActiveLink(pageId);
@@ -38,44 +35,29 @@ const Header = () => {
     <AppBar sx={appBarStyle} position="static">
       <MaxWidthWrapper>
         <Toolbar disableGutters sx={toolbarStyle}>
-          <Box sx={logoContainerStyle}>
-            <Link to="/" sx={logoStyle}>
-              <Logo />
-            </Link>
-            <Box sx={navLinksContainerStyle}>
-              {pages.map((page) => (
-                <Link
-                  to="#"
-                  key={page.id}
-                  sx={page.id === activeLink ? activeLinkStyle : linkStyle}
-                  onClick={() => handleLinkClick(page.id)}
-                >
-                  {React.cloneElement(page.icon, {
-                    color: page.id === activeLink ? "#06082C" : "#7B7EA5",
-                  })}
-                  {page.link}
-                </Link>
-              ))}
-            </Box>
-          </Box>
-          <Box sx={rightBoxStyle}>
-            <Box sx={languageBoxStyle}>
-              <RuFlag />
-              RU
-              <ArrDown />
-            </Box>
-            <Box sx={userBoxStyle} onClick={handleOpen}>
-              <User />
-            </Box>
-          </Box>
-          <Box sx={burgerMenuStyle}>
-            <BurgerMenuIcon />
-          </Box>
+          <HeaderLinks activeLink={activeLink} />
+          <HeaderMenu
+            openMenu={openMenu}
+            handleOpen={handleOpen}
+            toggleDrawer={toggleDrawer}
+          />
+          <HeaderMobileDrower
+            openMenu={openMenu}
+            toggleDrawer={toggleDrawer}
+            activeLink={activeLink}
+            setOpen={setOpen}
+            setOpenMenu={setOpenMenu}
+            handleLinkClick={handleLinkClick}
+            setIsRegistered={setIsRegistered}
+          />
         </Toolbar>
       </MaxWidthWrapper>
 
-      {/* login form */}
-      <Login handleClose={handleClose} open={open} />
+      <Login open={open} />
+      <Register
+        isRegistered={isRegistered}
+        openStepperVarification={openStepperVarification}
+      />
     </AppBar>
   );
 };
