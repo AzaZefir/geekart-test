@@ -1,19 +1,21 @@
 import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
 import { CloseIcon } from "../../../assets/headerIcons/HeaderIcons";
-import { Controller } from "react-hook-form";
-import PhoneInput from "react-phone-input-2";
 import { loginStyles } from "../Login";
 import ReusableButton from "../../../components/ui/ReusableButton";
+import PhoneInputController from "./phoneInputController/PhoneInputController";
+import { AuthState } from "../../../context/AuthProvider";
+import MobileScrollLines from "../../../components/ui/MobileScrollLines";
 
-const LoginModal = ({
-  open,
-  handleClose,
-  handleSubmit,
-  onSubmit,
-  control,
-  errors,
-}) => {
+const LoginModal = ({ handleSubmit, onSubmit, control, errors, open }) => {
+  const { setOpen, setIsRegistered } = AuthState();
+  const handleClose = () => setOpen(false);
+
+  const handleOpenRegisterModal = () => {
+    setOpen(false);
+    setIsRegistered(true);
+  };
+
   return (
     <Modal
       open={open}
@@ -25,14 +27,15 @@ const LoginModal = ({
       }}
     >
       <Box sx={loginStyles}>
+        <MobileScrollLines bottom="47px" />
         <Box
           component="figure"
           sx={{
             cursor: "pointer",
             margin: "0",
             position: "absolute",
-            right: "10px",
-            top: "10px",
+            right: "16px",
+            top: "16px",
           }}
           onClick={handleClose}
         >
@@ -60,21 +63,22 @@ const LoginModal = ({
             textAlign: "center",
             fontSize: "30px",
             lineHeight: "32px",
-            letterSpacing: "-1%",
+            letterSpacing: "-0.4px",
           }}
         >
           Вход на платформу
         </Typography>
+
         <Typography
           id="modal-modal-description"
           component="p"
           sx={{
-            mt: "16px",
+            mt: "19px",
             mb: "32px",
             textAlign: "center",
-            fontSize: "12px",
+            fontSize: "14px",
             lineHeight: "18px",
-            letterSpacing: "-0.1",
+            letterSpacing: "-0.59px",
             fontWeight: "600",
             color: "rgba(147, 149, 184, 1)",
           }}
@@ -94,52 +98,12 @@ const LoginModal = ({
               fontWeight: "400",
               lineHeight: "18px",
               color: "rgba(147, 149, 184, 1)",
+              fontSize: "12px",
             }}
           >
             Номер телефона
           </label>
-          <Controller
-            name="phoneNumber"
-            control={control}
-            render={({ field: { name, value, onChange, ref, onBlur } }) => (
-              <PhoneInput
-                value={value}
-                onChange={(value, country, event, formattedValue) => {
-                  onChange(formattedValue);
-                }}
-                onBlur={onBlur}
-                name="phoneNumber"
-                type="text"
-                country={"ru"}
-                enableAreaCodes={true}
-                disableDropdown={true}
-                onlyCountries={["ru"]}
-                inputProps={{
-                  id: "phoneInput",
-                  autoComplete: "on",
-                  name: "Номер телефона",
-                  country: "ru",
-                  required: false,
-                  autoFocus: false,
-                  name,
-                  ref,
-                }}
-                containerStyle={{
-                  marginBottom: errors.phoneNumber ? "4px" : "24px",
-                }}
-                inputStyle={{
-                  height: "40px",
-                  width: "100%",
-                  background: "rgba(241, 243, 247, 1)",
-                  border: "1px solid rgba(241, 243, 247, 1)",
-                  fontSize: "14px",
-                  paddingRight: "10px",
-                  borderRadius: "10px",
-                  color: "rgba(147, 149, 184, 1)",
-                }}
-              />
-            )}
-          />
+          <PhoneInputController control={control} errors={errors} />
           {errors.phoneNumber && (
             <Typography
               color="error"
@@ -172,11 +136,16 @@ const LoginModal = ({
         </Box>
 
         <Box>
-          <Typography sx={{ mb: "16px", textAlign: "center" }}>
+          <Typography
+            sx={{ mb: "16px", textAlign: "center" }}
+            variant="h6"
+            component="p"
+          >
             Нет аккаунта?
           </Typography>
           <ReusableButton
             variant="text"
+            onClick={handleOpenRegisterModal}
             buttonStyles={{
               backgroundColor: "rgba(241, 243, 247, 1)",
               color: "rgba(6, 8, 44, 1)",

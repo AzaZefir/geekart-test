@@ -7,7 +7,7 @@ import { schema } from "./../../helper/LoginValidation";
 import LoginModal from "./loginModal/LoginModal";
 import PhoneNumberConfirmationModal from "../phoneNumberConfirmation/PhoneNumberConfirmationModal";
 
-const Login = ({ handleClose, open }) => {
+const Login = ({ open }) => {
   const [showSecondModal, setShowSecondModal] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const {
@@ -29,12 +29,11 @@ const Login = ({ handleClose, open }) => {
     <React.Fragment>
       {!showSecondModal && (
         <LoginModal
-          open={open}
-          handleClose={handleClose}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
           control={control}
           errors={errors}
+          open={open}
         />
       )}
 
@@ -42,7 +41,6 @@ const Login = ({ handleClose, open }) => {
         <PhoneNumberConfirmationModal
           showSecondModal={showSecondModal}
           setShowSecondModal={setShowSecondModal}
-          handleClose={handleClose}
           phoneNumber={phoneNumber}
         />
       )}

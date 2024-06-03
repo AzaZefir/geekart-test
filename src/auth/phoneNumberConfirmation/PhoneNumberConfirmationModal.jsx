@@ -1,16 +1,41 @@
 import { Box, Modal, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { CloseIcon } from "../../assets/headerIcons/HeaderIcons";
 import PinInput from "../../components/ui/PinInput";
 import ReusableButton from "../../components/ui/ReusableButton";
 import { loginStyles } from "../login/Login";
+import { AuthState } from "./../../context/AuthProvider";
+import MobileScrollLines from "../../components/ui/MobileScrollLines";
 
 const PhoneNumberConfirmationModal = ({
   showSecondModal,
   setShowSecondModal,
-  handleClose,
   phoneNumber,
 }) => {
+  const { setOpen, setIsRegistered, setStepperVarification } = AuthState();
+  const [pinCode, setPinCode] = useState("");
+  const handleClose = () => {
+    setOpen(false);
+    setIsRegistered(false);
+  };
+
+  const handlePinComplete = (pin) => {
+    setPinCode(pin);
+  };
+
+  const handleConfirmClick = () => {
+    if (pinCode === "777777") {
+      setShowSecondModal(false);
+      setStepperVarification(true);
+      handleClose();
+    } else if (pinCode === "111111") {
+      setShowSecondModal(false);
+      handleClose();
+    } else {
+      alert("Incorrect PIN. Please try again.");
+    }
+  };
+
   return (
     <Modal
       open={showSecondModal}
@@ -25,14 +50,15 @@ const PhoneNumberConfirmationModal = ({
       }}
     >
       <Box sx={loginStyles}>
+        <MobileScrollLines bottom="12px" />
         <Box
           component="figure"
           sx={{
             cursor: "pointer",
             margin: "0",
             position: "absolute",
-            right: "10px",
-            top: "10px",
+            right: "16px",
+            top: "16px",
           }}
           onClick={() => {
             setShowSecondModal(false);
@@ -75,9 +101,10 @@ const PhoneNumberConfirmationModal = ({
             textAlign: "center",
             fontSize: "12px",
             lineHeight: "18px",
-            letterSpacing: "-0.1",
+            letterSpacing: "-0.1px",
             fontWeight: "600",
             color: "rgba(147, 149, 184, 1)",
+            padding: "0 20px",
           }}
         >
           Отправим сообщение с 6-ти значным кодом на номер {phoneNumber}{" "}
@@ -90,11 +117,12 @@ const PhoneNumberConfirmationModal = ({
           </Typography>
         </Typography>
 
-        <PinInput />
+        <PinInput onComplete={handlePinComplete} />
 
         <ReusableButton
           variant="text"
-          type="submit"
+          type="button"
+          onClick={handleConfirmClick}
           buttonStyles={{
             backgroundColor: "rgba(6, 8, 44, 1)",
             color: "rgba(255, 255, 255, 1)",

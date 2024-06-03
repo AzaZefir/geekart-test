@@ -37,9 +37,10 @@ const StyledInput = styled(TextField)({
   },
 });
 
-const PinInput = () => {
+const PinInput = ({ onComplete }) => {
   const inputsRef = useRef([]);
   const pinLength = 6;
+  const pinCode = useRef(Array(pinLength).fill(""));
 
   const handleInputChange = (index, e) => {
     const input = e.target;
@@ -47,19 +48,25 @@ const PinInput = () => {
 
     if (!isNaN(value)) {
       if (value.length > 1) {
-        // Если введено больше одной цифры, оставляем только первую
         input.value = value.slice(0, 1);
       }
 
+      pinCode.current =
+        pinCode.current.slice(0, index) +
+        value +
+        pinCode.current.slice(index + 1);
+
       if (index < pinLength - 1 && value !== "") {
-        // Переходим к следующему инпуту, если он существует и введена цифра
         inputsRef.current[index + 1].focus();
+      }
+
+      if (onComplete) {
+        onComplete(pinCode.current);
       }
     }
   };
 
   const handleBackspace = (index, e) => {
-    // Переходим к предыдущему инпуту при нажатии backspace, если инпут пустой
     if (index > 0 && e.key === "Backspace" && e.target.value === "") {
       inputsRef.current[index - 1].focus();
     }
@@ -79,7 +86,6 @@ const PinInput = () => {
               inputMode: "numeric",
               pattern: "[0-9]*",
               maxLength: 1,
-              width: "40px",
             }}
           />
         </PinInputItem>
