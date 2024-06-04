@@ -281,3 +281,53 @@ export const organizationsData = [
     img: "/org7.png",
   },
 ];
+
+export const interstingSubscribesData = [
+  {
+    id: 1,
+    avatar: "/sportsman1.png",
+    country: "/flag.png",
+    name: "Александр Магомедов",
+    sport: "Спортсмен",
+    destinetions: "Призер Олимпийских игр, двукратный призер чемпионатов мира",
+    verified: true,
+  },
+  {
+    id: 2,
+    avatar: "/subs2.png",
+    country: "/flag.png",
+    name: "Дмитрий Зайцев",
+    sport: "Судья",
+    destinetions:
+      "Заслуженный судья и секретарь соревнований по греко-римской борьбе",
+    verified: true,
+  },
+  {
+    id: 3,
+    avatar: "/subs3.png",
+    country: "/flag.png",
+    name: "Светлана Бессонова",
+    sport: "Спортсмен",
+    destinetions: "Призер Олимпийских игр, двукратный призер чемпионатов мира ",
+    verified: false,
+  },
+  {
+    id: 4,
+    avatar: "/subs4.png",
+    country: "/flag.png",
+    name: "Андрей Романов",
+    sport: "Спортсмен",
+    destinetions:
+      "Мастер спорта СССР международного класса, заслуженный тренер СССР по греко-римской борьбе",
+    verified: false,
+  },
+  {
+    id: 5,
+    avatar: "/subs5.png",
+    country: "/flag.png",
+    name: "Анастасия Землякова",
+    sport: "Тренер",
+    destinetions: "Тренер по гандболу",
+    verified: true,
+  },
+];
