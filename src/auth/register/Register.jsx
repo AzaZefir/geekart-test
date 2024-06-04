@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { AuthState } from "../../context/AuthProvider";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+
 import PhoneNumberConfirmationModal from "../phoneNumberConfirmation/PhoneNumberConfirmationModal";
 import RegisterModal from "./registerModal/RegisterModal";
-import { registerSchema } from "./../../helper/RegisterValidation";
 import RegisterModalWithSteps from "./registerModalWithSteps/RegisterModalWithSteps";
 
 const Register = ({ isRegistered, openStepperVarification }) => {
@@ -17,30 +15,6 @@ const Register = ({ isRegistered, openStepperVarification }) => {
 
   const [showSecondModal, setShowSecondModal] = useState(false);
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(registerSchema),
-    mode: "onSubmit",
-  });
-
-  const onSubmit = (data) => {
-    console.log(data);
-    // Сохранение данных в localStorage
-    localStorage.setItem("phoneNumber", data.phoneNumber);
-    localStorage.setItem("kindOfSports", JSON.stringify(kindOfSports));
-    localStorage.setItem("sportsmans", JSON.stringify(sportsmans));
-    localStorage.setItem(
-      "sportOrganizations",
-      JSON.stringify(sportOrganizations)
-    );
-    localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    setPhoneNumber(data.phoneNumber);
-    setShowSecondModal(true);
-  };
-
   const handleClose = () => {
     setIsRegistered(false);
   };
@@ -51,10 +25,8 @@ const Register = ({ isRegistered, openStepperVarification }) => {
         <RegisterModal
           isRegistered={isRegistered}
           handleClose={handleClose}
-          errors={errors}
-          onSubmit={onSubmit}
-          handleSubmit={handleSubmit}
-          control={control}
+          setPhoneNumber={setPhoneNumber}
+          setShowSecondModal={setShowSecondModal}
         />
       )}
 

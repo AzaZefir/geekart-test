@@ -9,20 +9,39 @@ import MobileScrollLines from "../../../components/ui/MobileScrollLines";
 import CloseBtnUi from "../../../components/ui/CloseBtnUi";
 import LogoViewUi from "../../../components/ui/LogoViewUi";
 
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "../../../helper/RegisterValidation";
+
 const RegisterModal = ({
   isRegistered,
   handleClose,
-  errors,
-  onSubmit,
-  handleSubmit,
-  control,
+  setPhoneNumber,
+  setShowSecondModal
 }) => {
   const { setIsRegistered, setOpen } = AuthState();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(registerSchema),
+    mode: "onSubmit",
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+    localStorage.setItem("phoneNumber", data.phoneNumber);
+    setPhoneNumber(data.phoneNumber);
+    setShowSecondModal(true);
+  };
 
   const onOpenLogin = () => {
     setOpen(true);
     setIsRegistered(false);
   };
+  
   return (
     <Modal
       open={isRegistered}

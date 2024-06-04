@@ -1,5 +1,5 @@
 import { Box, Modal, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CloseIcon } from "../../assets/headerIcons/HeaderIcons";
 import PinInput from "../../components/ui/PinInput";
 import ReusableButton from "../../components/ui/ReusableButton";
@@ -7,14 +7,39 @@ import { loginStyles } from "../login/Login";
 import { AuthState } from "./../../context/AuthProvider";
 import MobileScrollLines from "../../components/ui/MobileScrollLines";
 import LogoViewUi from "../../components/ui/LogoViewUi";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { createPinSchema } from "../../helper/PinValidation";
+import AnimatedDots from "../../components/ui/Loader";
 
 const PhoneNumberConfirmationModal = ({
   showSecondModal,
   setShowSecondModal,
   phoneNumber,
 }) => {
-  const { setOpen, setIsRegistered, setStepperVarification } = AuthState();
   const [pinCode, setPinCode] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setError] = useState("");
+  const [validationSchema, setValidationSchema] = useState(
+    createPinSchema(pinCode)
+  );
+
+  useEffect(() => {
+    setValidationSchema(createPinSchema(pinCode));
+  }, [pinCode]);
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+    mode: "onSubmit",
+  });
+
+  const { setOpen, setIsRegistered, setStepperVarification, setIsAuth } =
+    AuthState();
+
   const handleClose = () => {
     setOpen(false);
     setIsRegistered(false);
@@ -24,16 +49,26 @@ const PhoneNumberConfirmationModal = ({
     setPinCode(pin);
   };
 
-  const handleConfirmClick = () => {
-    if (pinCode === "777777") {
-      setShowSecondModal(false);
-      setStepperVarification(true);
-      handleClose();
-    } else if (pinCode === "111111") {
-      setShowSecondModal(false);
-      handleClose();
+  const onSubmit = (data) => {
+    const pin = data.pin;
+    if (pin === "777777") {
+      setIsLoading(true);
+      setTimeout(() => {
+        setShowSecondModal(false);
+        setStepperVarification(true);
+        handleClose();
+        setIsLoading(false);
+      }, 2000);
+    } else if (pin === "111111") {
+      setIsLoading(true);
+      setTimeout(() => {
+        setShowSecondModal(false);
+        handleClose();
+        setIsLoading(false);
+      }, 2000);
+      setIsAuth(true);
     } else {
-      alert("Incorrect PIN. Please try again.");
+      setError("Введен неверный код");
     }
   };
 
@@ -50,7 +85,7 @@ const PhoneNumberConfirmationModal = ({
         backdropFilter: "blur(2px)",
       }}
     >
-      <Box sx={loginStyles}>
+      <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={loginStyles}>
         <MobileScrollLines bottom="12px" />
         <Box
           component="figure"
@@ -70,7 +105,7 @@ const PhoneNumberConfirmationModal = ({
         </Box>
 
         <LogoViewUi />
-        
+
         <Typography
           id="modal-modal-title"
           variant="h1"
@@ -109,12 +144,31 @@ const PhoneNumberConfirmationModal = ({
           </Typography>
         </Typography>
 
-        <PinInput onComplete={handlePinComplete} />
+        <PinInput
+          onComplete={handlePinComplete}
+          control={control}
+          errors={errors}
+          setPinCode={setPinCode}
+          isError={isError}
+        />
+        {(errors.pin || isError !== "") && (
+          <Typography
+            color="error"
+            sx={{
+              fontSize: "12px",
+              fontWeight: "400",
+              lineHeight: "18px",
+              textAlign: "left",
+              mb: "24px",
+            }}
+          >
+            {errors.pin?.message || isError}
+          </Typography>
+        )}
 
         <ReusableButton
           variant="text"
-          type="button"
-          onClick={handleConfirmClick}
+          type="submit"
           buttonStyles={{
             backgroundColor: "rgba(6, 8, 44, 1)",
             color: "rgba(255, 255, 255, 1)",
@@ -124,7 +178,7 @@ const PhoneNumberConfirmationModal = ({
             },
           }}
         >
-          Подтвердить
+          {isLoading ? <AnimatedDots /> : "Подтвердить"}
         </ReusableButton>
 
         <Typography

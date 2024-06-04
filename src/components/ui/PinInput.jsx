@@ -1,19 +1,7 @@
 import React, { useRef } from "react";
 import { styled } from "@mui/system";
-import { TextField, Grid } from "@mui/material";
-
-const PinInputContainer = styled("div")({
-  display: "flex",
-  width: "100%",
-  border: "none",
-  justifyContent: "space-between",
-  gap: "8px",
-  marginBottom: "24px",
-});
-
-const PinInputItem = styled(Grid)({
-  //   width: "40px",
-});
+import { TextField, Box } from "@mui/material";
+import { Controller } from "react-hook-form";
 
 const StyledInput = styled(TextField)({
   "& input[type=number]": {
@@ -36,12 +24,12 @@ const StyledInput = styled(TextField)({
   },
 });
 
-const PinInput = ({ onComplete }) => {
+const PinInput = ({ onComplete, control, errors, isError }) => {
   const inputsRef = useRef([]);
   const pinLength = 6;
   const pinCode = useRef(Array(pinLength).fill(""));
 
-  const handleInputChange = (index, e) => {
+  const handleInputChange = (index, e, onChange) => {
     const input = e.target;
     const value = input.value;
 
@@ -50,17 +38,17 @@ const PinInput = ({ onComplete }) => {
         input.value = value.slice(0, 1);
       }
 
-      pinCode.current =
-        pinCode.current.slice(0, index) +
-        value +
-        pinCode.current.slice(index + 1);
+      pinCode.current[index] = value;
 
       if (index < pinLength - 1 && value !== "") {
         inputsRef.current[index + 1].focus();
       }
 
+      const updatedPinCode = pinCode.current.join("");
+      onChange(updatedPinCode);
+
       if (onComplete) {
-        onComplete(pinCode.current);
+        onComplete(updatedPinCode);
       }
     }
   };
@@ -72,24 +60,60 @@ const PinInput = ({ onComplete }) => {
   };
 
   return (
-    <PinInputContainer>
-      {[...Array(pinLength)].map((_, index) => (
-        <PinInputItem item key={index}>
-          <StyledInput
-            variant="outlined"
-            inputRef={(el) => (inputsRef.current[index] = el)}
-            onChange={(e) => handleInputChange(index, e)}
-            onKeyDown={(e) => handleBackspace(index, e)}
-            inputProps={{
-              type: "number",
-              inputMode: "numeric",
-              pattern: "[0-9]*",
-              maxLength: 1,
-            }}
-          />
-        </PinInputItem>
-      ))}
-    </PinInputContainer>
+    <Controller
+      name="pin"
+      control={control}
+      render={({ field: { value, onChange, ref } }) => (
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+            border: "none",
+            justifyContent: "space-between",
+            gap: "8px",
+            marginBottom: errors.pin || isError !== "" ? "4px" : "24px",
+          }}
+        >
+          {[...Array(pinLength)].map((_, index) => (
+            <Box
+              sx={{
+                border:
+                  errors.pin || isError !== ""
+                    ? "1px solid rgba(210, 16, 16, 1)"
+                    : "",
+                borderRadius: "10px",
+              }}
+              key={index}
+            >
+              <StyledInput
+                variant="outlined"
+                inputRef={(el) => (inputsRef.current[index] = el)}
+                onChange={(e) => {
+                  if (
+                    pinCode.current.join("").length < pinLength ||
+                    e.target.value.length === 0
+                  ) {
+                    handleInputChange(index, e, onChange);
+                  } else {
+                    // Запретить дальнейший ввод, если длина пин-кода уже равна 6.
+                    e.preventDefault();
+                    e.target.value = e.target.value.slice(0, 1);
+                  }
+                }}
+                onKeyDown={(e) => handleBackspace(index, e)}
+                inputProps={{
+                  type: "number",
+                  inputMode: "numeric",
+                  pattern: "[0-9]*",
+                  maxLength: 1,
+                  ref,
+                }}
+              />
+            </Box>
+          ))}
+        </Box>
+      )}
+    />
   );
 };
 

@@ -14,6 +14,7 @@ const RegisterModalFooter = ({
   activeStep,
   handleSkip,
   handleNext,
+  handleSubmit,
 }) => {
   return (
     <Box sx={modalFooterWrapperStyles}>
@@ -24,19 +25,31 @@ const RegisterModalFooter = ({
           buttonStyles={{
             ...backBtnStyles,
             display: activeStep === 0 ? "none" : "block",
+            width: { mobile: "100%", mobileL: "max-content" },
+            mb: { mobile: "16px", mobileL: "initial" },
           }}
         >
           Назад
         </ReusableButton>
-        <ReusableButton onClick={handleSkip} buttonStyles={backBtnStyles}>
+        <ReusableButton
+          onClick={handleNext}
+          buttonStyles={{
+            ...backBtnStyles,
+            width: { mobile: "100%", mobileL: "max-content" },
+          }}
+        >
           Пропустить
         </ReusableButton>
       </Box>
 
       <ReusableButton
-        onClick={handleNext}
-        disabled={activeStep === steps.length - 1}
-        buttonStyles={continueBtnStyles}
+        onClick={activeStep === 4 ? handleSubmit : handleNext}
+        buttonStyles={{
+          ...continueBtnStyles,
+          width: { mobile: "100%", mobileL: "max-content" },
+          mt: { mobile: "16px", mobileL: "initial" },
+        }}
+        type={activeStep === 4 ? "submit" : "button"}
       >
         Продолжить
       </ReusableButton>

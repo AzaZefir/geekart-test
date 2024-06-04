@@ -68,6 +68,8 @@ const RegisterModalWithSteps = (props) => {
           handleBack={handleBack}
           handleSkip={handleSkip}
           handleNext={handleNext}
+          handleCloseStepper={handleCloseStepper}
+          setActiveStep={setActiveStep}
         />
       </Box>
     </Modal>
