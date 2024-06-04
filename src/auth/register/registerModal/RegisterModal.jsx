@@ -6,6 +6,8 @@ import PhoneInputController from "../../login/loginModal/phoneInputController/Ph
 import ReusableButton from "../../../components/ui/ReusableButton";
 import { AuthState } from "../../../context/AuthProvider";
 import MobileScrollLines from "../../../components/ui/MobileScrollLines";
+import CloseBtnUi from "../../../components/ui/CloseBtnUi";
+import LogoViewUi from "../../../components/ui/LogoViewUi";
 
 const RegisterModal = ({
   isRegistered,
@@ -32,33 +34,10 @@ const RegisterModal = ({
       }}
     >
       <Box sx={loginStyles}>
-        <MobileScrollLines bottom='70px'/>
-        <Box
-          component="figure"
-          sx={{
-            cursor: "pointer",
-            margin: "0",
-            position: "absolute",
-            right: "10px",
-            top: "10px",
-          }}
-          onClick={handleClose}
-        >
-          <CloseIcon />
-        </Box>
+        <MobileScrollLines bottom="70px" />
+        <CloseBtnUi onClick={handleClose} />
 
-        <Box
-          component="figure"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            mb: "24px",
-            mt: "0",
-          }}
-        >
-          <img src="/logoSmall.png" alt="logo" />
-        </Box>
+        <LogoViewUi />
 
         <Typography
           id="modal-modal-title"

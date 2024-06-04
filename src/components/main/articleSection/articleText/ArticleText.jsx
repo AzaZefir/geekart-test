@@ -11,7 +11,7 @@ const CustomButton = styled(Button)({
   color: "#353754",
   cursor: "pointer",
   "&:hover": {
-    color: "#ff2410",
+    color: "#7B7EA5",
     fontWeight: "500",
     backgroundColor: "inherit",
   },

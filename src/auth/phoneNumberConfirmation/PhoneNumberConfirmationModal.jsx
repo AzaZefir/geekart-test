@@ -6,6 +6,7 @@ import ReusableButton from "../../components/ui/ReusableButton";
 import { loginStyles } from "../login/Login";
 import { AuthState } from "./../../context/AuthProvider";
 import MobileScrollLines from "../../components/ui/MobileScrollLines";
+import LogoViewUi from "../../components/ui/LogoViewUi";
 
 const PhoneNumberConfirmationModal = ({
   showSecondModal,
@@ -67,18 +68,9 @@ const PhoneNumberConfirmationModal = ({
         >
           <CloseIcon />
         </Box>
-        <Box
-          component="figure"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            mb: "24px",
-            mt: "0",
-          }}
-        >
-          <img src="/logoSmall.png" alt="logo" />
-        </Box>
+
+        <LogoViewUi />
+        
         <Typography
           id="modal-modal-title"
           variant="h1"

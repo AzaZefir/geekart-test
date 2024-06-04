@@ -35,7 +35,10 @@ const Header = () => {
     <AppBar sx={appBarStyle} position="static">
       <MaxWidthWrapper>
         <Toolbar disableGutters sx={toolbarStyle}>
-          <HeaderLinks activeLink={activeLink} />
+          <HeaderLinks
+            activeLink={activeLink}
+            handleLinkClick={handleLinkClick}
+          />
           <HeaderMenu
             openMenu={openMenu}
             handleOpen={handleOpen}

@@ -10,7 +10,7 @@ import {
   navLinksContainerStyle,
 } from "../HeaderStyles";
 
-const HeaderLinks = ({ activeLink }) => {
+const HeaderLinks = ({ activeLink, handleLinkClick }) => {
   return (
     <Box sx={logoContainerStyle}>
       <Link to="/" sx={logoStyle}>
@@ -21,6 +21,7 @@ const HeaderLinks = ({ activeLink }) => {
           <Link
             to="#"
             key={page.id}
+            variant="pBold"
             sx={page.id === activeLink ? activeLinkStyle : linkStyle}
             onClick={() => handleLinkClick(page.id)}
           >

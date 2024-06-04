@@ -1,11 +1,12 @@
 import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
-import { CloseIcon } from "../../../assets/headerIcons/HeaderIcons";
 import { loginStyles } from "../Login";
 import ReusableButton from "../../../components/ui/ReusableButton";
 import PhoneInputController from "./phoneInputController/PhoneInputController";
 import { AuthState } from "../../../context/AuthProvider";
 import MobileScrollLines from "../../../components/ui/MobileScrollLines";
+import CloseBtnUi from "../../../components/ui/CloseBtnUi";
+import LogoViewUi from "../../../components/ui/LogoViewUi";
 
 const LoginModal = ({ handleSubmit, onSubmit, control, errors, open }) => {
   const { setOpen, setIsRegistered } = AuthState();
@@ -28,32 +29,9 @@ const LoginModal = ({ handleSubmit, onSubmit, control, errors, open }) => {
     >
       <Box sx={loginStyles}>
         <MobileScrollLines bottom="47px" />
-        <Box
-          component="figure"
-          sx={{
-            cursor: "pointer",
-            margin: "0",
-            position: "absolute",
-            right: "16px",
-            top: "16px",
-          }}
-          onClick={handleClose}
-        >
-          <CloseIcon />
-        </Box>
+        <CloseBtnUi onClick={handleClose} />
 
-        <Box
-          component="figure"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            mb: "24px",
-            mt: "0",
-          }}
-        >
-          <img src="/logoSmall.png" alt="logo" />
-        </Box>
+        <LogoViewUi />
 
         <Typography
           id="modal-modal-title"

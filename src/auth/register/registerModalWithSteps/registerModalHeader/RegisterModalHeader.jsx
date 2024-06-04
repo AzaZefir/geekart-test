@@ -1,24 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { CloseIcon } from "../../../../assets/headerIcons/HeaderIcons";
 import { steps } from "../../../../data";
+import CloseBtnUi from "../../../../components/ui/CloseBtnUi";
+import { descriptionOfModalContentStyles } from "../../RegisterStyles";
 
 const RegisterModalHeader = ({ handleCloseStepper, activeStep }) => {
   return (
     <Box sx={{ p: "34px 24px 0 24px" }}>
-      <Box
-        component="figure"
-        sx={{
-          cursor: "pointer",
-          margin: "0",
-          position: "absolute",
-          right: "16px",
-          top: "16px",
-        }}
-        onClick={handleCloseStepper}
-      >
-        <CloseIcon />
-      </Box>
+      <CloseBtnUi onClick={handleCloseStepper} />
 
       <Box sx={{ textAlign: "start", marginBottom: "12px" }}>
         <Typography
@@ -39,15 +28,7 @@ const RegisterModalHeader = ({ handleCloseStepper, activeStep }) => {
           <Typography
             id="modal-modal-description"
             component="p"
-            sx={{
-              mt: "16px",
-              textAlign: "start",
-              fontSize: "12px",
-              lineHeight: "18px",
-              letterSpacing: "-0.1px",
-              fontWeight: "600",
-              color: "rgba(147, 149, 184, 1)",
-            }}
+            sx={descriptionOfModalContentStyles}
           >
             Выберите одного или нескольких спортсменов из списка предложенных.
           </Typography>
@@ -55,15 +36,7 @@ const RegisterModalHeader = ({ handleCloseStepper, activeStep }) => {
           <Typography
             id="modal-modal-description"
             component="p"
-            sx={{
-              mt: "16px",
-              textAlign: "start",
-              fontSize: "12px",
-              lineHeight: "18px",
-              letterSpacing: "-0.1px",
-              fontWeight: "600",
-              color: "rgba(147, 149, 184, 1)",
-            }}
+            sx={descriptionOfModalContentStyles}
           >
             Выберите организации из списка предложенных.
           </Typography>
