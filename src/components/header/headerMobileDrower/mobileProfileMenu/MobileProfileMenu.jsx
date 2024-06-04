@@ -1,16 +1,18 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Link, Typography } from "@mui/material";
 import React from "react";
 import { ArrDown } from "../../../../assets/headerIcons/HeaderIcons";
 
 const MobileProfileMenu = () => {
   return (
     <>
-      <Box
+      <Link
+        href="/profile"
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0 14px 15px 8px",
+          textDecoration: "none",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -32,7 +34,7 @@ const MobileProfileMenu = () => {
           </Typography>
         </Box>
         <ArrDown />
-      </Box>
+      </Link>
       <Divider sx={{ mb: "8px" }} />
     </>
   );
