@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
-import Header from "./components/header/Header";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import routes from './routes/Routes';
 import "./App.css";
-import HomePage from "./pages/HomePage";
+
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
     <Box component="section">
-      <Header />
-      <HomePage />
+      <RouterProvider router={router} />
     </Box>
   );
 }
