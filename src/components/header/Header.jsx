@@ -9,6 +9,7 @@ import Register from "../../auth/register/Register.jsx";
 import HeaderLinks from "./headerLinks/HeaderLinks.jsx";
 import HeaderMenu from "./headerMenu/HeaderMenu.jsx";
 import HeaderMobileDrower from "./headerMobileDrower/HeaderMobileDrower.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const {
@@ -17,15 +18,24 @@ const Header = () => {
     isRegistered,
     setIsRegistered,
     openStepperVarification,
+    isAuth,
   } = AuthState();
+
   const [activeLink, setActiveLink] = useState("1");
   const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
 
   const toggleDrawer = (open) => () => {
     setOpenMenu(open);
   };
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    if (isAuth) {
+      navigate("/profile");
+    } else {
+      setOpen(true);
+    }
+  };
 
   const handleLinkClick = (pageId) => {
     setActiveLink(pageId);
@@ -40,6 +50,7 @@ const Header = () => {
             handleLinkClick={handleLinkClick}
           />
           <HeaderMenu
+            isAuth={isAuth}
             openMenu={openMenu}
             handleOpen={handleOpen}
             toggleDrawer={toggleDrawer}

@@ -1,9 +1,10 @@
-import { Box, IconButton } from "@mui/material";
 import React, { Fragment } from "react";
+import { Box, IconButton, Typography } from "@mui/material";
 import {
   ArrDown,
   BurgerMenuIcon,
   CloseIcon,
+  NotificationsIcon,
   RuFlag,
   User,
 } from "../../../assets/headerIcons/HeaderIcons";
@@ -14,7 +15,7 @@ import {
   userBoxStyle,
 } from "../HeaderStyles";
 
-const HeaderMenu = ({ handleOpen, toggleDrawer, openMenu }) => {
+const HeaderMenu = ({ handleOpen, toggleDrawer, openMenu, isAuth }) => {
   return (
     <Fragment>
       <Box sx={rightBoxStyle}>
@@ -23,8 +24,44 @@ const HeaderMenu = ({ handleOpen, toggleDrawer, openMenu }) => {
           RU
           <ArrDown />
         </Box>
-        <Box sx={userBoxStyle} onClick={handleOpen}>
-          <User />
+        {isAuth ? (
+          <IconButton sx={{ position: "relative" }}>
+            <NotificationsIcon />
+            <Typography
+              component="span"
+              sx={{
+                width: "5px",
+                height: "5px",
+                position: "absolute",
+                top: "9px",
+                right: "5px",
+                backgroundColor: "rgba(210, 16, 16, 1)",
+                borderRadius: "50%",
+              }}
+            />
+          </IconButton>
+        ) : (
+          ""
+        )}
+        <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <Box
+            sx={{
+              ...userBoxStyle,
+              borderRadius: isAuth ? "50%" : "10px",
+            }}
+            onClick={handleOpen}
+          >
+            {!isAuth ? (
+              <User />
+            ) : (
+              <img
+                src="/sportsman1.png"
+                alt="user avatar"
+                style={{ width: "100%", objectFit: "cover" }}
+              />
+            )}
+          </Box>
+          {isAuth ? <ArrDown /> : ""}
         </Box>
       </Box>
       <Box sx={burgerMenuStyle} onClick={toggleDrawer(true)}>
