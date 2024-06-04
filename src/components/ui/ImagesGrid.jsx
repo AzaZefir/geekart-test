@@ -3,7 +3,17 @@ import React from "react";
 
 const ImagesGrid = ({ data, type, style, onClick, selectedImages, gap }) => {
   return (
-    <ImageList sx={{ width: "100%", my: "0" }} cols={3} gap={gap}>
+    <ImageList
+      sx={{
+        width: "100%",
+        my: "0",
+        gridTemplateColumns: {
+          mobile: "repeat(2, 1fr) !important",
+          mobileL: "repeat(3, 1fr) !important",
+        },
+      }}
+      gap={gap}
+    >
       {data.map((item) => (
         <ImageListItem
           key={item.img}
