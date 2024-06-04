@@ -65,9 +65,9 @@ const mobileLinkStyle = {
   fontWeight: "548",
   letterSpacing: "-0.5px",
   padding: "0",
-  height:'52px',
-  fontSize:'14px',
-  mb:'8px'
+  height: "52px",
+  fontSize: "14px",
+  mb: "8px",
 };
 
 const activeMobileLinkStyle = {
@@ -98,8 +98,8 @@ const userBoxStyle = {
   backgroundColor: "#F1F3F7",
   width: "40px",
   height: "40px",
-  borderRadius: "10px",
   cursor: "pointer",
+  overflow: "hidden",
 };
 
 const burgerMenuStyle = {

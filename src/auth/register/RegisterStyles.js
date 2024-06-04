@@ -1,12 +1,12 @@
 const registerStyles = {
   position: "absolute",
-  top: "50%",
+  top: { mobile: "55%", mobileL: "50%" },
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "766px",
-  height: "614px",
+  width: { mobile: "100%", tablet: "766px" },
+  height: { mobile: "776px", mobileL: "614px" },
   background: "rgba(255, 255, 255, 1)",
-  borderRadius: "24px",
+  borderRadius: { mobile: "24px 24px 0 0", mobileL: "24px" },
   boxShadow: "8px 8px 29px 0px rgba(147, 149, 184, 0.2)",
   border: "none",
   outline: "none",
@@ -46,7 +46,7 @@ const organizationsWrapperStyles = {
   display: "grid",
   columnGap: "54px",
   rowGap: "20px",
-  gridTemplateColumns: "repeat(2, 332px)",
+  gridTemplateColumns: { mobile: "repeat(1, 1fr)", tablet: "repeat(2, 332px)" },
   height: "323px",
   overflowY: "scroll",
   mt: "24px",
@@ -132,6 +132,13 @@ const sportsmansSearchInputStyles = {
   },
   "& .MuiOutlinedInput-input": {
     padding: "8.5px 0",
+    "&::placeholder": {
+      fontSize: "14px",
+      lineHeight: "20px",
+      letterSpacing: "-0.5px",
+      fontWeight: "500",
+      color: "rgba(147, 149, 184, 1)",
+    },
   },
 };
 
@@ -149,7 +156,7 @@ const sportsmansContentWrapperStyles = {
   display: "grid",
   columnGap: "54px",
   rowGap: "20px",
-  gridTemplateColumns: "repeat(2, 332px)",
+  gridTemplateColumns: { mobile: "repeat(1, 1fr)", tablet: "repeat(2, 332px)" },
   height: "355px",
   overflowY: "scroll",
   mt: "24px",
@@ -208,6 +215,7 @@ const descriptionOfModalContentStyles = {
 const modalFooterWrapperStyles = {
   display: "flex",
   justifyContent: "space-between",
+  flexDirection: { mobile: "column", mobileL: "row" },
   p: "16px 24px 20px 24px",
 };
 
@@ -215,6 +223,7 @@ const backSkipBtnsWrapperStyles = {
   width: "100%",
   display: "flex",
   justifyContent: "space-between",
+  flexDirection: { mobile: "column", mobileL: "row" },
   alignItems: "center",
   mr: "16px",
 };
