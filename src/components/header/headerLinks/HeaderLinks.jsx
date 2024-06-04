@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import React from "react";
 import { Logo } from "../../../assets/headerIcons/HeaderIcons";
 import { pages } from "../../../data";
@@ -9,12 +9,11 @@ import {
   logoStyle,
   navLinksContainerStyle,
 } from "../HeaderStyles";
-import { Link } from "react-router-dom";
 
 const HeaderLinks = ({ activeLink, handleLinkClick }) => {
   return (
     <Box sx={logoContainerStyle}>
-      <Link to="/" sx={logoStyle}>
+      <Link href="/" sx={logoStyle}>
         <Logo />
       </Link>
       <Box sx={navLinksContainerStyle}>
