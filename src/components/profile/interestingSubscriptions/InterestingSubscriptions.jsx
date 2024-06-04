@@ -114,7 +114,7 @@ const InterestingSubscriptions = () => {
                       textOverflow: "ellipsis",
                       WebkitBoxOrient: "vertical",
                       WebkitLineClamp: 1,
-                      width: "216px",
+                      width: { mobile: "150px", laptopL: "216px" },
                     }}
                   >
                     {p.sport}{" "}

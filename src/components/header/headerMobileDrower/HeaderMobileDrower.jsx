@@ -1,16 +1,11 @@
-import {
-  Box,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  Typography,
-} from "@mui/material";
+import { Box, Drawer, IconButton, List, Typography } from "@mui/material";
 import React from "react";
 import { pages } from "../../../data";
-import { activeMobileLinkStyle, mobileLinkStyle } from "../HeaderStyles";
 import { ArrDown, RuFlag } from "../../../assets/headerIcons/HeaderIcons";
 import ReusableButton from "../../ui/ReusableButton";
+import MobileProfileMenu from "./mobileProfileMenu/MobileProfileMenu";
+import MobileNavs from "./mobileNavs/MobileNavs";
+import MobileLangChange from "./mobileLangChange/MobileLangChange";
 
 const HeaderMobileDrower = ({
   openMenu,
@@ -20,6 +15,7 @@ const HeaderMobileDrower = ({
   setOpenMenu,
   handleLinkClick,
   setIsRegistered,
+  isAuth,
 }) => {
   return (
     <Drawer
@@ -53,60 +49,19 @@ const HeaderMobileDrower = ({
       >
         <Box sx={{ mt: "24px" }}>
           <List sx={{ margin: "0 16px" }}>
-            {pages.map((item) => (
-              <ListItem
-                button
-                key={item.id}
-                component="a"
-                href={item.href}
-                sx={
-                  item.id === activeLink
-                    ? activeMobileLinkStyle
-                    : mobileLinkStyle
-                }
-                onClick={() => handleLinkClick(item.id)}
-              >
-                <IconButton>
-                  {React.cloneElement(item.icon, {
-                    color: item.id === activeLink ? "#06082C" : "#7B7EA5",
-                  })}
-                </IconButton>
-                {item.link}
-              </ListItem>
-            ))}
-            <Box
-              sx={{
-                width: "100%",
-                height: "52px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: "6px",
-                }}
-              >
-                <IconButton>
-                  <RuFlag />
-                </IconButton>
-                <Typography
-                  variant="h6"
-                  component="p"
-                  sx={{ color: "rgba(6, 8, 44, 1)" }}
-                >
-                  RU{" "}
-                </Typography>
-              </Box>
+            {isAuth ? <MobileProfileMenu /> : ""}
 
-              <IconButton>
-                <ArrDown />
-              </IconButton>
-            </Box>
+            {pages.map((item) => (
+              <MobileNavs
+                key={item.id}
+                item={item}
+                handleLinkClick={handleLinkClick}
+                activeLink={activeLink}
+                {...item}
+              />
+            ))}
+
+            <MobileLangChange />
           </List>
         </Box>
 

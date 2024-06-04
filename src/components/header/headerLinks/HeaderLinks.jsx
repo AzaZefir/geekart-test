@@ -14,7 +14,7 @@ import {
 const HeaderLinks = ({ activeLink, handleLinkClick }) => {
   return (
     <Box sx={logoContainerStyle}>
-      <Link to="/" sx={logoStyle}>
+      <Link href="/" sx={logoStyle}>
         <Logo />
       </Link>
       <Box sx={navLinksContainerStyle}>

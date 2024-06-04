@@ -57,6 +57,7 @@ const Header = () => {
           />
           <HeaderMobileDrower
             openMenu={openMenu}
+            isAuth={isAuth}
             toggleDrawer={toggleDrawer}
             activeLink={activeLink}
             setOpen={setOpen}

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://azazefir.github.io/geekart-test/",
+  "homepage": "https://azazefir.github.io/geekart-test",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
