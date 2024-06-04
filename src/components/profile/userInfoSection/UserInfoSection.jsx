@@ -23,7 +23,7 @@ const UserInfoSection = ({ isAuth, handleLogout }) => {
         justifyContent: "flex-start",
         flexDirection: "column",
         gap: "40px",
-        boxSizing:'border-box'
+        boxSizing: "border-box",
       }}
     >
       <Box
@@ -113,8 +113,9 @@ const UserInfoSection = ({ isAuth, handleLogout }) => {
                 variant="body2"
                 sx={{
                   display: "flex",
-                  alignItems: "center",
                   justifyContent: "flex-start",
+                  flexDirection: { mobile: "column", laptopL: "row" },
+                  alignItems: { mobile: "start", laptopL: "center" },
                   gap: "8px",
                 }}
               >
@@ -135,17 +136,23 @@ const UserInfoSection = ({ isAuth, handleLogout }) => {
                     src="/subs2.png"
                   />
                 </AvatarGroup>
-                <Typography variant="body2" sx={{ color: "rgba(6, 8, 44, 1)" }}>
-                  2
-                </Typography>{" "}
-                Подписчики
+                <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "rgba(6, 8, 44, 1)" }}
+                  >
+                    2
+                  </Typography>{" "}
+                  Подписчики
+                </Box>
               </Typography>
               <Typography
                 variant="body2"
                 sx={{
                   display: "flex",
-                  alignItems: "center",
                   justifyContent: "flex-start",
+                  flexDirection: { mobile: "column", laptopL: "row" },
+                  alignItems: { mobile: "start", laptopL: "center" },
                   gap: "8px",
                 }}
               >
@@ -171,10 +178,15 @@ const UserInfoSection = ({ isAuth, handleLogout }) => {
                     src="/subs5.png"
                   />
                 </AvatarGroup>
-                <Typography variant="body2" sx={{ color: "rgba(6, 8, 44, 1)" }}>
-                  10
-                </Typography>{" "}
-                Подписки
+                <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "rgba(6, 8, 44, 1)" }}
+                  >
+                    10
+                  </Typography>{" "}
+                  Подписки
+                </Box>
               </Typography>
             </Box>
           </Box>
