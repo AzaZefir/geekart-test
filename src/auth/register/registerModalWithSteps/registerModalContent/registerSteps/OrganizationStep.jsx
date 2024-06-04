@@ -7,7 +7,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { SearchIcon } from "../../../../../assets/modal/SearchIcon";
 import ReusableButton from "../../../../../components/ui/ReusableButton";
 import { organizationsData } from "../../../../../data";
 import {
@@ -16,7 +15,9 @@ import {
   searchInputBtnStyles,
   organizationsImageStyles,
   organizationsCheckboxStyles,
+  sportsmansSearchInputStyles,
 } from "../../../RegisterStyles";
+import { SearchIcon } from "../../../../../assets/modal/FormUserIcon";
 
 const OrganizationStep = ({ activeStep }) => {
   return (
@@ -34,24 +35,7 @@ const OrganizationStep = ({ activeStep }) => {
             <TextField
               variant="outlined"
               placeholder="Поиск"
-              sx={{
-                backgroundColor: "rgba(248, 248, 249, 1)",
-                borderRadius: "10px",
-                boxSizing: "border-box",
-                height: "40px",
-                "& fieldset": {
-                  border: "none",
-                },
-                "&:hover fieldset": {
-                  border: "none",
-                },
-                "&.Mui-focused fieldset": {
-                  border: "none",
-                },
-                "& .MuiOutlinedInput-input": {
-                  padding: "8.5px 0",
-                },
-              }}
+              sx={sportsmansSearchInputStyles}
               fullWidth
               InputProps={{
                 startAdornment: (

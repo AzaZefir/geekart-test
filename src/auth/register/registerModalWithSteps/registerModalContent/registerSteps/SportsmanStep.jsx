@@ -7,7 +7,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { SearchIcon } from "../../../../../assets/modal/SearchIcon";
+
+import { SearchIcon } from "../../../../../assets/modal/FormUserIcon";
 import ReusableButton from "../../../../../components/ui/ReusableButton";
 import { sportsmansData } from "../../../../../data";
 import {
