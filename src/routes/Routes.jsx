@@ -6,11 +6,13 @@ const routes = [
   {
     path: "/",
     element: <RootLayout />,
-    children: [{ index: true, element: <HomePage /> }],
-  },
-  {
-    path: "/profile",
-    element: <ProfilePage />,
+    children: [
+      { index: true, element: <HomePage /> },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+    ],
   },
 ];
-export default routes
+export default routes;
