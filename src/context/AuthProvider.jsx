@@ -1,12 +1,20 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const [isAuth, setIsAuth] = useState(() => {
+    const auth = localStorage.getItem("isAuth");
+    return auth ? JSON.parse(auth) : false;
+  });
   const [open, setOpen] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
   const [openStepperVarification, setStepperVarification] = useState(false);
 
+  useEffect(() => {
+    localStorage.setItem("isAuth", JSON.stringify(isAuth));
+  }, [isAuth]);
+  
   return (
     <AuthContext.Provider
       value={{
@@ -16,6 +24,8 @@ const AuthProvider = ({ children }) => {
         setIsRegistered,
         openStepperVarification,
         setStepperVarification,
+        isAuth,
+        setIsAuth,
       }}
     >
       {children}
