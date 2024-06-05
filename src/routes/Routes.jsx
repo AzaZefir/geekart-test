@@ -1,3 +1,4 @@
+import React from 'react';
 import { RootLayout } from "./RootLayout";
 import ProfilePage from "../pages/ProfilePage";
 import HomePage from "../pages/HomePage";

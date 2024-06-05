@@ -1,5 +1,5 @@
-import { Box, IconButton, Typography } from "@mui/material";
 import React from "react";
+import { Box, IconButton, Typography } from "@mui/material";
 import { ArrDown, RuFlag } from "../../../../assets/headerIcons/HeaderIcons";
 
 const MobileLangChange = () => {

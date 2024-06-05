@@ -1,5 +1,5 @@
-import { Box, Divider, Link, Typography } from "@mui/material";
 import React from "react";
+import { Box, Divider, Link, Typography } from "@mui/material";
 import { ArrDown } from "../../../../assets/headerIcons/HeaderIcons";
 
 const MobileProfileMenu = () => {

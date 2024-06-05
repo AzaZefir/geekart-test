@@ -8,12 +8,15 @@ import {
   Typography,
 } from "@mui/material";
 
-import { SearchIcon } from "../../../../../assets/modal/FormUserIcon";
+import {
+  ChechBoxIcon,
+  CheckedCheckboxIcon,
+  SearchIcon,
+} from "../../../../../assets/modal/FormUserIcon";
 import ReusableButton from "../../../../../components/ui/ReusableButton";
 import { sportsmansData } from "../../../../../data";
 import {
   sportsmanWrapperStyles,
-  sportsmansCheckboxStyles,
   sportsmansContentWrapperStyles,
   sportsmansImageWrapperStyles,
   sportsmansSearchInputBtnStyles,
@@ -78,7 +81,10 @@ const SportsmanStep = ({ activeStep }) => {
                     </Typography>
                   </Box>
                 </Box>
-                <Checkbox sx={sportsmansCheckboxStyles} />
+                <Checkbox
+                  icon={<ChechBoxIcon />}
+                  checkedIcon={<CheckedCheckboxIcon />}
+                />
               </Box>
             ))}
           </Box>

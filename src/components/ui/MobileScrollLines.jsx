@@ -1,5 +1,5 @@
-import { Typography, useTheme } from "@mui/material";
 import React, { Fragment } from "react";
+import { Typography, useTheme } from "@mui/material";
 
 const MobileScrollLines = ({ bottom }) => {
   const theme = useTheme();

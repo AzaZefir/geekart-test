@@ -14,10 +14,13 @@ import {
   organizationsImageWrapperStyles,
   searchInputBtnStyles,
   organizationsImageStyles,
-  organizationsCheckboxStyles,
   sportsmansSearchInputStyles,
 } from "../../../RegisterStyles";
-import { SearchIcon } from "../../../../../assets/modal/FormUserIcon";
+import {
+  ChechBoxIcon,
+  CheckedCheckboxIcon,
+  SearchIcon,
+} from "../../../../../assets/modal/FormUserIcon";
 
 const OrganizationStep = ({ activeStep }) => {
   return (
@@ -86,7 +89,10 @@ const OrganizationStep = ({ activeStep }) => {
                     </Typography>
                   </Box>
                 </Box>
-                <Checkbox sx={organizationsCheckboxStyles} />
+                <Checkbox
+                  icon={<ChechBoxIcon />}
+                  checkedIcon={<CheckedCheckboxIcon />}
+                />
               </Box>
             ))}
           </Box>

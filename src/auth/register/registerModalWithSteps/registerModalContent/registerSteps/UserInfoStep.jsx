@@ -1,58 +1,49 @@
-import { Box, IconButton, InputLabel } from "@mui/material";
-import React, { Fragment } from "react";
-import {
-  FormModalCameraIcon,
-  FormUserIcon,
-} from "./../../../../../assets/modal/FormUserIcon";
+import React, { Fragment, useState } from "react";
+import { Box } from "@mui/material";
 import CustomTextField from "../../../../../components/ui/CustomTextField";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import CalendarDatePicker from "../../../../../components/ui/CalendarDatePicker";
+import SelectSex from "../../../../../components/ui/SelectSex";
+import SelectCitizenShip from "../../../../../components/ui/SelectCitizenShip";
+import ChangeUserAvatar from "../../../../../components/ui/ChangeUserAvatar";
 
 const UserInfoStep = ({ activeStep }) => {
+  const [citizenship, setCitizenship] = useState("");
+  const [sex, setSex] = useState("");
+
+  const handleCitizenshipChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setCitizenship(value);
+  };
+
+  const handleSexChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setSex(value);
+  };
+
   return (
     <Fragment>
       {activeStep === 3 && (
-        <Box sx={{overflow: { mobile: "scroll", mobileL: "unset" },
-        height: { mobile: "500px", mobileL: "unset" },}}>
-          <Box sx={{ m: "16px 24px 32px 24px" }}>
-            <Box
-              component="figure"
-              sx={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100px",
-                height: "100px",
-                borderRadius: "250px",
-                backgroundColor: "#CCCFDA",
-                m: "0",
-              }}
-            >
-              <FormUserIcon />
-              <IconButton
-                sx={{
-                  position: "absolute",
-                  left: "68px",
-                  top: "68px",
-                  width: "32px",
-                  height: "32px",
-                  backgroundColor: "#F1F3F7",
-                }}
-              >
-                <FormModalCameraIcon />
-              </IconButton>
-            </Box>
-          </Box>
+        <Box
+          sx={{
+            overflow: { mobile: "scroll", mobileL: "unset" },
+            height: { mobile: "500px", mobileL: "unset" },
+          }}
+        >
+          <ChangeUserAvatar />
 
           <Box
             sx={{
               display: "grid",
               columnGap: "20px",
               rowGap: "24px",
-              gridTemplateColumns: { mobile: "repeat(1, 1fr)", mobileL: "repeat(2, 1fr)" },
+              gridTemplateColumns: {
+                mobile: "repeat(1, 1fr)",
+                mobileL: "repeat(2, 1fr)",
+              },
               m: "0 24px 83px 24px",
             }}
           >
@@ -62,15 +53,14 @@ const UserInfoStep = ({ activeStep }) => {
               label="Отчество (необязательно)"
               placeholder="Введите отчество"
             />
-            <CustomTextField
-              label="Дата рождения"
-              placeholder="Выберите дату"
-            />
 
-            <CustomTextField label="Пол" placeholder="Выберите пол" />
-            <CustomTextField
-              label="Гражданство"
-              placeholder="Выберите страну"
+            <CalendarDatePicker />
+
+            <SelectSex sex={sex} handleSexChange={handleSexChange} />
+
+            <SelectCitizenShip
+              citizenship={citizenship}
+              handleCitizenshipChange={handleCitizenshipChange}
             />
           </Box>
         </Box>

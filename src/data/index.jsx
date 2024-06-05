@@ -1,9 +1,10 @@
+import React from 'react';
 import {
   AchievmentsIcon,
   AllIcon,
   ResultIcon,
   VideoIcon,
-} from "./../assets/filterIcons/FilterIcons";
+} from "../assets/filterIcons/FilterIcons";
 import {
   Building,
   Home,
@@ -329,5 +330,36 @@ export const interstingSubscribesData = [
     sport: "Тренер",
     destinetions: "Тренер по гандболу",
     verified: true,
+  },
+];
+
+export const subscriptionsData = [
+  {
+    id: "1",
+    icon: "/subs4.png",
+    name: "Remy Sharp",
+  },
+  {
+    id: "2",
+    icon: "/subs3.png",
+    name: "Travis Howard",
+  },
+  {
+    id: "3",
+    icon: "/subs2.png",
+    name: "Cindy Baker",
+  },
+];
+
+export const subscribersData = [
+  {
+    id: "1",
+    icon: "/subs2.png",
+    name: "Remy Sharp",
+  },
+  {
+    id: "2",
+    icon: "/subs3.png",
+    name: "Travis Howard",
   },
 ];

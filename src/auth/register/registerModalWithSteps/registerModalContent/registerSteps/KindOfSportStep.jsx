@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
 import React, { Fragment } from "react";
+import { Box } from "@mui/material";
 import ImagesGrid from "../../../../../components/ui/ImagesGrid";
 import { kindOfSportsData } from "../../../../../data";
 import MobileScrollLines from "../../../../../components/ui/MobileScrollLines";
