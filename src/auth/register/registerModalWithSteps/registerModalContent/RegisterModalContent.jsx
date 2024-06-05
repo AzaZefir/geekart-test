@@ -1,5 +1,5 @@
-import { Box, Divider } from "@mui/material";
 import React, { useEffect } from "react";
+import { Box, Divider } from "@mui/material";
 import KindOfSportStep from "./registerSteps/KindOfSportStep";
 import SportsmanStep from "./registerSteps/SportsmanStep";
 import OrganizationStep from "./registerSteps/OrganizationStep";

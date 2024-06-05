@@ -1,6 +1,7 @@
+import React from "react";
 import { Box } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import routes from './routes/Routes';
+import routes from "./routes/Routes";
 import "./App.css";
 
 const router = createBrowserRouter(routes);

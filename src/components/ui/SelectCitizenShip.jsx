@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   InputLabel,
@@ -5,7 +6,6 @@ import {
   OutlinedInput,
   Select,
 } from "@mui/material";
-import React from "react";
 import { ArrDown, RuFlag } from "../../assets/headerIcons/HeaderIcons";
 
 const SelectCitizenShip = ({ citizenship, handleCitizenshipChange }) => {

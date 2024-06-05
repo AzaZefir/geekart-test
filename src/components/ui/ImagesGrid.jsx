@@ -1,5 +1,5 @@
-import { ImageList, ImageListItem, Typography } from "@mui/material";
 import React from "react";
+import { ImageList, ImageListItem, Typography } from "@mui/material";
 
 const ImagesGrid = ({ data, type, style, onClick, selectedImages, gap }) => {
   return (

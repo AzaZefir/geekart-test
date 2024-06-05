@@ -1,5 +1,5 @@
-import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
+import { Box, Modal, Typography } from "@mui/material";
 import { loginStyles } from "../Login";
 import ReusableButton from "../../../components/ui/ReusableButton";
 import PhoneInputController from "./phoneInputController/PhoneInputController";

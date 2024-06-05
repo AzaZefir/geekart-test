@@ -1,9 +1,10 @@
+import React from 'react';
 import {
   AchievmentsIcon,
   AllIcon,
   ResultIcon,
   VideoIcon,
-} from "./../assets/filterIcons/FilterIcons";
+} from "../assets/filterIcons/FilterIcons";
 import {
   Building,
   Home,

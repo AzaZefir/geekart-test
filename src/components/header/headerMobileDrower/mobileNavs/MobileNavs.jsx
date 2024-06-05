@@ -1,5 +1,5 @@
-import { IconButton, ListItem } from "@mui/material";
 import React from "react";
+import { IconButton, ListItem } from "@mui/material";
 import { activeMobileLinkStyle, mobileLinkStyle } from "../../HeaderStyles";
 
 const MobileNavs = ({ item, handleLinkClick, activeLink }) => {

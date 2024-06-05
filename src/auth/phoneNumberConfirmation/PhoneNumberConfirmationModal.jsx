@@ -1,5 +1,5 @@
-import { Box, Modal, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Box, Modal, Typography } from "@mui/material";
 import { CloseIcon } from "../../assets/headerIcons/HeaderIcons";
 import PinInput from "../../components/ui/PinInput";
 import ReusableButton from "../../components/ui/ReusableButton";

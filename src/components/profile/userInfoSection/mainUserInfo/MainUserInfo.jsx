@@ -1,5 +1,5 @@
-import { Avatar, AvatarGroup, Box, Typography } from "@mui/material";
 import React from "react";
+import { Avatar, AvatarGroup, Box, Typography } from "@mui/material";
 import { FormUserIcon } from "../../../../assets/modal/FormUserIcon";
 import { RuFlag } from "../../../../assets/headerIcons/HeaderIcons";
 import ReusableButton from "../../../ui/ReusableButton";
