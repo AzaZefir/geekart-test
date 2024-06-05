@@ -153,7 +153,7 @@ const UserInfoStep = ({ activeStep }) => {
                   borderRadius: "10px",
                   "& .MuiOutlinedInput-input": {
                     p: "0 16px 0 9px ",
-                    width: "85%",
+                    width: "80%",
                   },
                 }}
               >
@@ -216,7 +216,7 @@ const UserInfoStep = ({ activeStep }) => {
                   borderRadius: "10px",
                   "& .MuiOutlinedInput-input": {
                     p: "0 16px 0 9px ",
-                    width: "85%",
+                    width: "80%",
                   },
                 }}
               >
