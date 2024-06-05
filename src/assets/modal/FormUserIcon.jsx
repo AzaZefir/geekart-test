@@ -57,3 +57,46 @@ export const FormModalCameraIcon = () => {
     </svg>
   );
 };
+
+export const ChechBoxIcon = () => {
+  return (
+    <svg
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="0.75"
+        y="1.51562"
+        width="22.5"
+        height="22.5"
+        rx="6.25"
+        stroke="#CCCFDA"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+};
+
+export const CheckedCheckboxIcon = () => {
+  return (
+    <svg
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect y="0.765625" width="24" height="24" rx="7" fill="#353754" />
+      <path
+        d="M6.37305 13.3271L10.873 17.8271L17.623 7.70215"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

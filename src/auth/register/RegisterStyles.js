@@ -96,18 +96,6 @@ const organizationsImageStyles = {
   width: "208px",
 };
 
-const organizationsCheckboxStyles = {
-  "& .MuiSvgIcon-root": {
-    height: "32px",
-  },
-  "&.Mui-checked": {
-    color: "rgba(6, 8, 44, 1)",
-  },
-  "&:hover": {
-    bgcolor: "rgba(241, 243, 247, 0.5)",
-  },
-};
-
 // sportsmans styles
 const sportsmanWrapperStyles = {
   display: "flex",
@@ -190,18 +178,6 @@ const sportsmansImageWrapperStyles = {
   mr: "12px",
 };
 
-const sportsmansCheckboxStyles = {
-  "& .MuiSvgIcon-root": {
-    height: "32px",
-  },
-  "&.Mui-checked": {
-    color: "rgba(6, 8, 44, 1)",
-  },
-  "&:hover": {
-    bgcolor: "rgba(241, 243, 247, 0.5)",
-  },
-};
-
 const descriptionOfModalContentStyles = {
   mt: "16px",
   textAlign: "start",
@@ -256,13 +232,11 @@ export {
   organizationsWrapperStyles,
   organizationsImageWrapperStyles,
   organizationsImageStyles,
-  organizationsCheckboxStyles,
   sportsmanWrapperStyles,
   sportsmansSearchInputStyles,
   sportsmansSearchInputBtnStyles,
   sportsmansContentWrapperStyles,
   sportsmansImageWrapperStyles,
-  sportsmansCheckboxStyles,
   descriptionOfModalContentStyles,
   modalFooterWrapperStyles,
   backSkipBtnsWrapperStyles,
