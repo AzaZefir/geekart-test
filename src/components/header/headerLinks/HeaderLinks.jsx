@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { Box } from "@mui/material";
-=======
->>>>>>> 2f26c9da32e5f503430a8cd5278cb091c84bc473
 import React from "react";
 import { Box, Link } from "@mui/material";
 import { Logo } from "../../../assets/headerIcons/HeaderIcons";
