@@ -29,9 +29,9 @@
   - **login**: Страница входа в систему. [Компонент Login](#Компонент-Login)
     - **loginModal**: Модальное окно для входа в систему.
       - **phoneInputController**: Контроллер ввода телефонного номера.
-  - **phoneNumberConfirmation**: Страница подтверждения номера телефона.
+  - **phoneNumberConfirmation**: Страница подтверждения номера телефона.[Компонент PhoneNumConf](#Компонент-PhoneNumConf)
   - **register**: Страница регистрации нового пользователя.
-    - **registerModal**: Модальное окно для регистрации.
+    - **registerModal**: Модальное окно для регистрации.[Компонент RegisterModal](#Компонент-RegisterModal)
     - **registerModalWithSteps**: Модальное окно регистрации с шагами.
       - **registerModalContent**: Содержимое модального окна регистрации.
         - **registerModalFooter**: Подвал модального окна регистрации.
@@ -76,6 +76,12 @@
 
 ### [Компонент Login]
 ![Login modal](https://res.cloudinary.com/drdqjr8r6/image/upload/v1717595424/bg%20images/gh/login_fogkhj.png)
+
+### [#Компонент PhoneNumConf]
+![Login PhoneNumConf](https://res.cloudinary.com/drdqjr8r6/image/upload/v1717596130/bg%20images/gh/phoneNumConf_wfgsmq.png)
+
+### [#Компонент RegisterModal]
+![Login RegisterModal](https://res.cloudinary.com/drdqjr8r6/image/upload/v1717596133/bg%20images/gh/register_qkypy8.png)
 
 ### [Компонент Header]
 ![Header](https://res.cloudinary.com/drdqjr8r6/image/upload/v1717595423/bg%20images/gh/header_pggplu.png)
