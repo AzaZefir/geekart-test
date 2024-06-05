@@ -65,7 +65,11 @@ const SelectCitizenShip = ({ citizenship, handleCitizenshipChange }) => {
           },
         }}
       >
-        <MenuItem disabled value="">
+        <MenuItem
+          disabled
+          value=""
+          sx={{ minHeight: "unset", height: "40px", m: "0" }}
+        >
           <p>Placeholder</p>
         </MenuItem>
         <MenuItem value="Российская Федерация">
