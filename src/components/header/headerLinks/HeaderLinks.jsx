@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Link } from "@mui/material";
 import { Logo } from "../../../assets/headerIcons/HeaderIcons";
 import { pages } from "../../../data";
-import { Link } from 'react-router-dom';
 import {
   activeLinkStyle,
   linkStyle,
